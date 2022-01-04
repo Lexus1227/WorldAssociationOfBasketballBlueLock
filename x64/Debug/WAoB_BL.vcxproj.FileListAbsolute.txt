@@ -1,1 +1,2 @@
 C:\Study\2 курс\ООП\Курсач\WAoB_BL\x64\Debug\WAoB_BL.exe
+P:\D\Programming\WorldAssociationOfBasketballBlueLock\x64\Debug\WAoB_BL.exe
