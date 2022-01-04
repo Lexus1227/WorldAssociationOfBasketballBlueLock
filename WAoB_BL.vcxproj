@@ -144,6 +144,7 @@
     <ClInclude Include="StartScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="StartScene.cpp" />
   </ItemGroup>
