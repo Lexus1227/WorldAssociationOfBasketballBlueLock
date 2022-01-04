@@ -51,7 +51,7 @@ Scene* StartScene::options(std::string message) {
 		}
 		else if (message == "q") {
 
-			exit(EXIT_SUCCESS);
+			exit_game();
 
 		}
 	
@@ -59,13 +59,51 @@ Scene* StartScene::options(std::string message) {
 	else if(chose_team){
 
 		std::cout << "Происходит выбор команды" << std::endl;
-		// if меседж равен номеру команды
+		if (message == "q") {
 
-		// if меседж равен show номер команды
+			exit_game();
 
-		// if меседж равен b
-		
-		// if меседж равен q
+		}
+		else if (message == "b") {
+
+			// change Scene to start game
+
+		}
+		else if (is_number(message)) {
+
+			std::cout << "Вы выбрали команду" << std::endl;
+			int pos = std::stoi(message);
+			if (pos < (this->get_league()->get_teams().size())) {
+
+				// выбрать pos - 1 индекс в teams 
+				// установить её в лигу
+				// перейти к сцене игры? либо вернуться в стартовую с новой командой в существующих
+
+			}
+			else {
+
+				std::cout << "Был введён номер несуществующей команды, попробуйте ещё раз" << std::endl;
+
+			}
+
+
+		}
+		else if ((message.substr(0, 5) == "show ") and (is_number(message.substr(5, message.size() - 5)))) {
+
+			std::cout << "Вы выбрали отображение команды" << std::endl;
+			int pos = std::stoi(message.substr(5, message.size() - 5));
+			if (pos < (this->get_league()->get_teams().size())) {
+
+				// вывести информацию о команде на позиции pos - 1
+
+			}
+			else {
+
+				std::cout << "Был введён номер несуществующей команды, попробуйте ещё раз" << std::endl;
+
+			}
+
+		}
 
 	}
 

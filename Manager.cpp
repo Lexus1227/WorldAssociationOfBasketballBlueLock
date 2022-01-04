@@ -7,7 +7,7 @@ void Manager::do_sth() {
 		current_scene->content();
 		std::string input;
 
-		std::cin >> input;
+		std::getline(std::cin, input);
 
 		Scene* new_scene = current_scene->options(input);
 
