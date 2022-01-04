@@ -11,6 +11,4 @@ int main() {
 	Manager man;
 	man.do_sth();
 
-
-
 }

@@ -11,7 +11,8 @@ public:
 
 	Manager() {
 
-		current_scene = new StartScene();
+		League l;
+		current_scene = new StartScene(l);
 
 	}
 	void do_sth();
