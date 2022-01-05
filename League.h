@@ -9,10 +9,15 @@
 class League {
 
 private:
+	
 	std::vector<Team> teams;
+	Team* player_team;
 
 public:
+	
 	std::vector<Team> get_teams() { return teams; }
+	Team* get_player_team() { return player_team; }
+	void set_player_team(Team* team) { player_team = team; }
 
 };
 

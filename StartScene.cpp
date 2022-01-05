@@ -67,6 +67,7 @@ Scene* StartScene::options(std::string message) {
 		else if (message == "b") {
 
 			// change Scene to start game
+			chose_team = false;
 
 		}
 		else if (is_number(message)) {
@@ -78,6 +79,10 @@ Scene* StartScene::options(std::string message) {
 				// выбрать pos - 1 индекс в teams 
 				// установить её в лигу
 				// перейти к сцене игры? либо вернуться в стартовую с новой командой в существующих
+				this->get_league()->set_player_team(&this->get_league()->get_teams()[pos - 1]);
+
+				//Вернуть новую сцену
+				return this->options("b");
 
 			}
 			else {
@@ -95,6 +100,7 @@ Scene* StartScene::options(std::string message) {
 			if (pos < (this->get_league()->get_teams().size())) {
 
 				// вывести информацию о команде на позиции pos - 1
+				std::cout << this->get_league()->get_teams()[pos - 1] << std::endl;
 
 			}
 			else {
