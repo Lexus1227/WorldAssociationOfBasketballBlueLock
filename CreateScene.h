@@ -1,7 +1,11 @@
 #pragma once
+
 #include "Scene.h"
-class CreateScene :
-    public Scene
-{
+
+
+class CreateScene : public Scene {
+
+
+
 };
 

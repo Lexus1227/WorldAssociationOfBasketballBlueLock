@@ -11,7 +11,8 @@ public:
 
 	Manager() {
 
-		League l;
+		auto teams = load_teams(".\\teams", "teams");
+		League l(teams);
 		current_scene = new StartScene(l);
 
 	}
