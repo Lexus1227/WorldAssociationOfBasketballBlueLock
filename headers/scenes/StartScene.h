@@ -9,7 +9,7 @@ class StartScene : public Scene{
 
 public:
 
-	StartScene(League l): Scene(l) {
+	StartScene(League* l): Scene(l) {
 	
 		chose_team = false;
 

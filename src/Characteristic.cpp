@@ -38,7 +38,7 @@ std::istream& operator>>(std::istream& is, characteristic& stat) {
 			throw ParseException("Значение после символа = не соответствует вещественному значению");
 
 		}
-		stat.set_value(pairs[0], val);
+		stat.set_value(trim(pairs[0]), val);
 
 	}
 

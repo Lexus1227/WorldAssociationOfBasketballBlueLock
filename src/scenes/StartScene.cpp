@@ -1,4 +1,5 @@
 #include "StartScene.h"
+#include "CreateScene.h"
 
 
 void StartScene::content() {
@@ -51,6 +52,7 @@ Scene* StartScene::options(std::string message) {
 		else if (message == "2") {
 
 			//std::cout << "—цена создани€ команды" << std::endl;
+			return new CreateScene(this->get_league());
 
 		}
 		else if (message == "q") {

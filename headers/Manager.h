@@ -6,14 +6,15 @@
 class Manager{
 
 	Scene* current_scene;
+	League* league;
 
 public: 
 
 	Manager() {
 
 		auto teams = load_teams(".\\teams", "teams");
-		League l(teams);
-		current_scene = new StartScene(l);
+		this->league = new League(teams);
+		current_scene = new StartScene(this->league);
 
 	}
 	void do_sth();
@@ -23,6 +24,7 @@ public:
 	~Manager() {
 
 		delete current_scene;
+		delete league;
 
 	}
 

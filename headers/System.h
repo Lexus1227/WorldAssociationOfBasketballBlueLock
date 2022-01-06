@@ -15,6 +15,13 @@ bool is_number(const std::string& s);
 std::vector<std::string> split(std::string s, std::set<char> delimeters);
 
 
+// Отрезать от строки слева и справа пробельные символы
+const std::string WHITESPACE = " ";
+std::string ltrim(const std::string& s);
+std::string rtrim(const std::string& s);
+std::string trim(const std::string& s);
+
+
 class ParseException : public std::exception {
 private:
 	std::string message;
