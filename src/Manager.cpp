@@ -1,5 +1,6 @@
 #include "Manager.h"
 
+
 void Manager::run() {
 
 	while (stack.size()) {

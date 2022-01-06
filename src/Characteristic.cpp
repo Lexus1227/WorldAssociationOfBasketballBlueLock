@@ -27,10 +27,10 @@ std::istream& operator>>(std::istream& is, characteristic& stat) {
 		if (pairs.size() != 2) 
 			throw ParseException("Ошибка во время парсинга характеристик, не могу разделить поле по символу =");
 		
-		float val;
+		stat_type val;
 		try {
 
-			val = std::stof(pairs[1]);
+			val = std::stoi(pairs[1]);
 
 		}
 		catch (...) {

@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "Team.h"
+#include "Match.h"
 
 
 class League {
@@ -12,6 +13,22 @@ private:
 	
 	std::vector<Team> teams;
 	Team player_team;
+	Schedule schedule;
+
+	typedef	struct win_lose_rating {
+
+		stat_type win = 0;
+		stat_type lose = 0;
+
+	};
+
+	std::map<Team, win_lose_rating> stat;
+
+	// schedule 
+	// 1 day	 //		2 day				//	3 day //	
+	// LAL - LAC //		OBSOSTEAM - LAL		//
+	// SAS - OKC //		
+
 
 public:
 	
