@@ -32,7 +32,12 @@ std::istream& operator>>(std::istream& is, Player& p) {
 	std::string buf;
 	std::getline(is, p.name);
 	std::getline(is, p.number);
-	is >> p.stat;
+	try {
+		is >> p.stat;
+	}
+	catch (std::exception& e) {
+		throw e;
+	}
 	return is;
 
 }

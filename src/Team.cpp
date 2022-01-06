@@ -32,7 +32,14 @@ std::istream& operator>>(std::istream& is, Team& t) {
 	t.players.resize(nplayers);
 	for_i(nplayers) {
 
-		is >> t.players[index];
+		try {
+			is >> t.players[index];
+		}
+		catch (std::exception& e) {
+
+			throw e;
+
+		}
 
 	}
 
@@ -57,7 +64,7 @@ std::vector<Team> load_teams(std::string path, std::string file) {
 	nteams = std::stoi(buf);
 
 	std::vector<std::string> team_names(nteams);
-	std::vector<Team> teams(nteams);
+	std::vector<Team> teams;
 
 	for_i(nteams) {
 
@@ -71,7 +78,17 @@ std::vector<Team> load_teams(std::string path, std::string file) {
 
 		full_path = dir / std::filesystem::path(team_names[index]);
 		is.open(full_path.c_str(), std::ios::in);
-		is >> teams[index];
+		try {
+
+			Team t;
+			is >> t;
+			teams.push_back(t);
+		}
+		catch (...) {
+
+			// can't load this team, pass anyway
+
+		}
 		is.close();
 
 	}

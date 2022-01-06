@@ -1,4 +1,4 @@
-#include "Characteristic.h"
+	#include "Characteristic.h"
 
 
 std::ostream& operator<<(std::ostream& os, characteristic stat) {
@@ -14,6 +14,7 @@ std::ostream& operator<<(std::ostream& os, characteristic stat) {
 	return os;
 
 }
+
 
 std::istream& operator>>(std::istream& is, characteristic& stat) {
 
