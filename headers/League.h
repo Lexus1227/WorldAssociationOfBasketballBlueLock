@@ -10,10 +10,6 @@
 class League {
 
 private:
-	
-	std::vector<Team> teams;
-	Team player_team;
-	Schedule schedule;
 
 	typedef	struct win_lose_rating {
 
@@ -22,6 +18,9 @@ private:
 
 	};
 
+	std::vector<Team> teams;
+	Team player_team;
+	Schedule schedule;
 	std::map<Team, win_lose_rating> stat;
 
 	// schedule 

@@ -3,6 +3,9 @@
 #include "Team.h"
 
 
+typedef std::vector<std::vector<Match>> Schedule;
+
+
 class Match {
 
 private:
@@ -23,11 +26,11 @@ public:
 
 	stat_type get_score(unsigned nteam = 0) { return nteam < 2 ? score[nteam] : undef; }
 
-
 };
 
 
-typedef std::vector<std::vector<Match>> Schedule;
+Schedule generate_schedule(std::vector<Team> teams) {
 
 
-Schedule generate_schedule()	
+
+}
