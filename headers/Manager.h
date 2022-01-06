@@ -5,8 +5,10 @@
 
 class Manager{
 
-	Scene* current_scene;
+
+	std::vector<Scene*> stack;
 	League* league;
+
 
 public: 
 
@@ -14,16 +16,19 @@ public:
 
 		auto teams = load_teams(".\\teams", "teams");
 		this->league = new League(teams);
-		current_scene = new StartScene(this->league);
+		stack.push_back(new StartScene(this->league));
 
 	}
-	void do_sth();
-	
 
+	void run();
 
 	~Manager() {
 
-		delete current_scene;
+		for (auto s : stack) {
+
+			delete s;
+
+		}
 		delete league;
 
 	}

@@ -3,17 +3,14 @@
 #include "Scene.h"
 
 
-class StartScene : public Scene{
+class ChooseTeamScene : public Scene {
 
 public:
 
-	StartScene(League* l): Scene(l) {
-
-	};
+	ChooseTeamScene(League* l) : Scene(l) {};
 
 	void content();
 	Scene* options(std::string message);
 
 
 };
-

@@ -9,6 +9,6 @@ int main() {
 	setlocale(LC_ALL, "rus");
 
 	Manager man;
-	man.do_sth();
+	man.run();
 
 }
