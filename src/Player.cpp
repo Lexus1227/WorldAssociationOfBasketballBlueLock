@@ -21,7 +21,7 @@ std::ostream& operator<<(std::ostream& os, Player p) {
 
 	os << "Имя: " << p.name << std::endl;
 	os << "Номер: " << p.number << std::endl;
-	os << "Характеристики: \n" << p.stat;
+	os << "Характеристики: " << p.stat;
 	return os;
 
 }

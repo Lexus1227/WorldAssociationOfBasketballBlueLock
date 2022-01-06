@@ -5,9 +5,11 @@ std::ostream& operator<<(std::ostream& os, Team t) {
 
 	os << "Название: " << t.get_name() << std::endl;
 	os << "Игроки: " << std::endl;
+	std::cout << std::endl;
 	for (auto p : t.players) {
 
 		os << p << std::endl;
+		os << std::endl;
 
 	}
 	return os;

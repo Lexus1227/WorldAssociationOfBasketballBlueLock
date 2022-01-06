@@ -10,6 +10,7 @@ void StartScene::content() {
 		std::cout << "1 - Выбор существующей команды" << std::endl;
 		std::cout << "2 - Создание своей команды" << std::endl;
 		std::cout << "q - Выход" << std::endl;
+		std::cout << std::endl;
 
 	}
 	else if (chose_team) {
@@ -19,6 +20,7 @@ void StartScene::content() {
 		std::cout << "show [1-N] - Отобразить информацию о команде" << std::endl;
 		std::cout << "b - Вернуться к стартовому меню" << std::endl;
 		std::cout << "q - Выход" << std::endl;
+		std::cout << std::endl;
 		
 		std::cout << "Список команд" << std::endl;
 		int i = 1;
@@ -27,6 +29,7 @@ void StartScene::content() {
 			std::cout << i << ") " << team.get_name() << std::endl;
 
 		}
+		std::cout << std::endl;
 
 	}
 
@@ -34,6 +37,7 @@ void StartScene::content() {
 
 Scene* StartScene::options(std::string message) {
 
+	std::cout << std::endl;
 	Scene* new_scene = nullptr;
 	
 	if (not chose_team) {
@@ -41,12 +45,12 @@ Scene* StartScene::options(std::string message) {
 		if (message == "1") {
 
 			chose_team = true;
-			std::cout << "Сцена выбора команды" << std::endl;
+			//std::cout << "Сцена выбора команды" << std::endl;
 
 		}
 		else if (message == "2") {
 
-			std::cout << "Сцена создания команды" << std::endl;
+			//std::cout << "Сцена создания команды" << std::endl;
 
 		}
 		else if (message == "q") {
@@ -58,7 +62,6 @@ Scene* StartScene::options(std::string message) {
 	}
 	else if(chose_team){
 
-		std::cout << "Происходит выбор команды" << std::endl;
 		if (message == "q") {
 
 			exit_game();
@@ -72,15 +75,15 @@ Scene* StartScene::options(std::string message) {
 		}
 		else if (is_number(message)) {
 
-			std::cout << "Вы выбрали команду" << std::endl;
 			int pos = std::stoi(message) - 1;
+			std::cout << "Вы выбрали команду " << pos + 1 << std::endl;
+			std::cout << std::endl;
 			if (pos < (this->get_league()->get_teams().size())) {
 
 				// выбрать pos индекс в teams 
 				// установить её в лигу
 				// перейти к сцене игры? либо вернуться в стартовую с новой командой в существующих
-				this->get_league()->set_player_team(&this->get_league()->get_teams()[pos]);
-
+				this->get_league()->set_player_team(this->get_league()->get_teams()[pos]);
 				//Вернуть новую сцену
 				return this->options("b");
 
@@ -88,6 +91,7 @@ Scene* StartScene::options(std::string message) {
 			else {
 
 				std::cout << "Был введён номер несуществующей команды, попробуйте ещё раз" << std::endl;
+				std::cout << "Вы выбрали команду" << std::endl;
 
 			}
 
@@ -95,8 +99,8 @@ Scene* StartScene::options(std::string message) {
 		}
 		else if ((message.substr(0, 5) == "show ") and (is_number(message.substr(5, message.size() - 5)))) {
 
-			std::cout << "Вы выбрали отображение команды" << std::endl;
 			int pos = std::stoi(message.substr(5, message.size() - 5)) - 1;
+			std::cout << "Команда # " << pos + 1 << std::endl;
 			if (pos < (this->get_league()->get_teams().size())) {
 
 				// вывести информацию о команде на позиции pos
@@ -106,6 +110,7 @@ Scene* StartScene::options(std::string message) {
 			else {
 
 				std::cout << "Был введён номер несуществующей команды, попробуйте ещё раз" << std::endl;
+				std::cout << std::endl;
 
 			}
 

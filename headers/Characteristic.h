@@ -11,7 +11,10 @@
 const std::string ATK = "ATK";
 const std::string DEF = "DEF";
 const std::string AGI = "AGI";
-// TODO
+const std::string STR = "STR";
+const std::string END = "END";
+const std::string ACC = "ACC";
+
 const float undef = -1;
 
 
@@ -30,17 +33,18 @@ struct characteristic{
 
 	void set_value(std::string param, float value) {
 
-		if (param == "ATK") {
-
+		if (param == "ATK")
 			this->attack = value;
-
-		}
-		if (param == "DEF") {
-
+		if (param == "DEF") 
 			this->defense = value;
-
-		}
-		// TODO
+		if (param == "ACC")
+			this->acuraccy = value;
+		if (param == "STR")
+			this->strength = value;
+		if (param == "END")
+			this->endurance = value;
+		if (param == "AGI")
+			this->agility = value;
 
 	}
 	
