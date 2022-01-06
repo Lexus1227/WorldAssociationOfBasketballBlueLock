@@ -29,7 +29,6 @@ std::ostream& operator<<(std::ostream& os, Player p) {
 
 std::istream& operator>>(std::istream& is, Player& p) {
 
-	std::string buf;
 	std::getline(is, p.name);
 	std::getline(is, p.number);
 	try {

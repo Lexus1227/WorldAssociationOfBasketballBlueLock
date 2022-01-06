@@ -2,16 +2,14 @@
 
 #include "Scene.h"
 
-
-class CreateScene : public Scene {
+class GameScene : public Scene{
 
 private:
 
 public:
 
-	CreateScene(League* l) : Scene(l, true) {};
+	GameScene(League* l) : Scene(l) {};
 	void content();
 	Scene* options(std::string message);
 
-};
-
+}
