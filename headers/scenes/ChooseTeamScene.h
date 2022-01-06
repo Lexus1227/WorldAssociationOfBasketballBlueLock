@@ -9,7 +9,7 @@ public:
 
 	ChooseTeamScene(League* l) : Scene(l) {};
 
-	void content();
+	void content();	
 	Scene* options(std::string message);
 
 

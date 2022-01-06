@@ -29,7 +29,21 @@ Scene* CreateScene::options(std::string message) {
 	std::cout << std::endl;
 	if (message == "1") {
 
+		try {
 
+			Team new_team;
+			std::cin >> new_team;
+			this->get_league()->add_new_team(new_team);
+			std::cout << std::endl;
+			std::cout << "Команда была успешно создана и добавлена" << std::endl;
+			std::cout << std::endl;
+
+		}
+		catch (...) {
+
+			std::cout << "Ты ввёл данные в неправильном формате. Попробуй ещё раз" << std::endl << std::endl;
+
+		}
 
 	}
 	else {

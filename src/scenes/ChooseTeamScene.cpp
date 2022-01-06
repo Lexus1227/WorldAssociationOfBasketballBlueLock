@@ -15,7 +15,7 @@ void ChooseTeamScene::content() {
 	int i = 1;
 	for (auto team : this->get_league()->get_teams()) {
 
-		std::cout << i << ") " << team.get_name() << std::endl;
+		std::cout << i++ << ") " << team.get_name() << std::endl;
 
 	}
 	std::cout << std::endl;
@@ -38,7 +38,6 @@ Scene* ChooseTeamScene::options(std::string message) {
 			// установить её в лигу
 			// перейти к сцене игры? либо вернуться в стартовую с новой командой в существующих
 			this->get_league()->set_player_team(this->get_league()->get_teams()[pos]);
-			//Вернуть новую сцену
 
 		}
 		else {
