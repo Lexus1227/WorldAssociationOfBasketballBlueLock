@@ -19,17 +19,17 @@ void Match::simulate(int seed) {
 	};
 
 	score[0] = 
-		(mean(this->team[0], [](Player& p) { return p.get_stat(ATK); }) + rand() % 11) * 
-		(mean(this->team[0], [](Player& p) { return p.get_stat(END); }) + rand() % 11) / 100 -
-		(mean(this->team[1], [](Player& p) { return p.get_stat(DEF); }) + rand() % 11) *
-		(mean(this->team[1], [](Player& p) { return p.get_stat(END); }) + rand() % 11) / 200;
+		(mean(this->team[0], [](Player& p) { return p.get_stat(ATK); }) + rand() % 11 - 5) * 
+		(mean(this->team[0], [](Player& p) { return p.get_stat(END); }) + rand() % 11 - 5) / 100 -
+		(mean(this->team[1], [](Player& p) { return p.get_stat(DEF); }) + rand() % 11 - 5) *
+		(mean(this->team[1], [](Player& p) { return p.get_stat(END); }) + rand() % 11 - 5) / 200;
 	score[0] = score[0] >= 0 ? score[0] : 0;
 
-	score[1] =
-		(mean(this->team[1], [](Player& p) { return p.get_stat(ATK); }) + rand() % 11) *
-		(mean(this->team[1], [](Player& p) { return p.get_stat(END); }) + rand() % 11) / 100 -
-		(mean(this->team[0], [](Player& p) { return p.get_stat(DEF); }) + rand() % 11) *
-		(mean(this->team[0], [](Player& p) { return p.get_stat(END); }) + rand() % 11) / 200;
+	score[1] = 
+		(mean(this->team[1], [](Player& p) { return p.get_stat(ATK); }) + rand() % 11 - 5) *
+		(mean(this->team[1], [](Player& p) { return p.get_stat(END); }) + rand() % 11 - 5) / 100 -
+		(mean(this->team[0], [](Player& p) { return p.get_stat(DEF); }) + rand() % 11 - 5) *
+		(mean(this->team[0], [](Player& p) { return p.get_stat(END); }) + rand() % 11 - 5) / 200;
 
 	score[1] = score[1] >= 0 ? score[1] : 0;
 
