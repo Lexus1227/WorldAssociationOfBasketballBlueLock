@@ -3,6 +3,9 @@
 
 void Match::simulate(int seed) {
 
+	if (was_played)
+		return;
+	was_played = true;
 	// set score
 	//score[0] = 100 - seed;
 	//score[1] = 101 - seed;

@@ -37,7 +37,7 @@ Scene* MainGameScene::options(std::string message) {
 	else if (message == "s") {
 
 		//std::cout << "—цена симул€ции матча" << std::endl;
-		new_scene =  new MatchScene(this->get_league());
+		//new_scene =  new MatchScene(this->get_league());
 
 	}
 	

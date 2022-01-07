@@ -1,14 +1,16 @@
 #pragma once
 
 #include "Scene.h"
-#include "Match"
+#include "Match.h"
 
 
 class MatchScene : public Scene{
 
 public:
 
-	MatchScene(League* l, Match& m): Scene(l, true) {
+	Match* match;
+
+	MatchScene(League* l, Match* m): Scene(l, true), match(m) {
 
 	};
 
