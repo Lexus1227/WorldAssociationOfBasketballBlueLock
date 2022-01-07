@@ -3,11 +3,11 @@
 #include "Scene.h"
 
 
-class SheduleStatScene : public Scene{
+class ScheduleStatScene : public Scene{
 
 public:
 
-	SheduleStatScene(League* l): Scene(l, true) {
+	ScheduleStatScene(League* l): Scene(l, true) {
 
 	};
 

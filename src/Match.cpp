@@ -30,7 +30,6 @@ void Match::simulate(int seed) {
 		(mean(this->team[1], [](Player& p) { return p.get_stat(END); }) + rand() % 11 - 5) / 100 -
 		(mean(this->team[0], [](Player& p) { return p.get_stat(DEF); }) + rand() % 11 - 5) *
 		(mean(this->team[0], [](Player& p) { return p.get_stat(END); }) + rand() % 11 - 5) / 200;
-
 	score[1] = score[1] >= 0 ? score[1] : 0;
 
 }

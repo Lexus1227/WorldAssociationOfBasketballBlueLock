@@ -24,20 +24,20 @@ Scene* MainGameScene::options(std::string message) {
 	if (message == "1") {
 
 		//std::cout << "—цена расписани€ и статистика матчей" << std::endl;
-		//return new Scene(this->get_league());
+		new_scene =  new ScheduleStatScene(this->get_league());
 
 
 	}
 	else if (message == "2") {
 
 		//std::cout << "—цена управлени€ командой" << std::endl;
-		//return new Scene(this->get_league());
+		new_scene =  new TeamControlScene(this->get_league());
 
 	}
 	else if (message == "s") {
 
 		//std::cout << "—цена симул€ции матча" << std::endl;
-		//return new Scene(this->get_league());
+		new_scene =  new MatchScene(this->get_league());
 
 	}
 	

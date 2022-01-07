@@ -1,6 +1,11 @@
 #pragma once
 
 #include "Scene.h"
+#include "MatchScene.h"
+#include "TeamControlScene.h"
+#include "ScheduleStatScene.h"
+
+
 
 
 class MainGameScene : public Scene {

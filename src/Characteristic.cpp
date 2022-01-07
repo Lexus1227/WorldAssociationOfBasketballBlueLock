@@ -25,7 +25,7 @@ std::istream& operator>>(std::istream& is, characteristic& stat) {
 
 		auto pairs = split(value, { '=' });
 		if (pairs.size() != 2) 
-			throw ParseException("Ошибка во время парсинга характеристик, не могу разделить поле по символу =");
+			throw ParseException("Ошибка во время парсинга характеристик, невозможно поле по символу =");
 		
 		stat_type val;
 		try {
