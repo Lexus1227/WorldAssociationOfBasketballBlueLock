@@ -21,19 +21,28 @@ private:
 	std::vector<Team> teams;
 	Team player_team;
 	Schedule schedule;
-	std::map<Team, win_lose_rating> stat;
+	std::map<std::string, win_lose_rating> stat;
 	int cur_day = 0;
 
 	// schedule 
 	// 1 day	 //		2 day				//	3 day //	
 	// LAL - LAC //		OBSOSTEAM - LAL		//
 	// 110 - 115 //     95		  - 120		//
-	// SAS - OKC //		
+	// SAS - OKC //							
 
 
 public:
 	
-	League(std::vector<Team> t = {}) : teams(t) {}
+	League(std::vector<Team> t = {}) : teams(t) { 
+	
+		for (auto& t : teams) {
+
+			stat[t.get_name()] = { 0, 0 };
+
+		}
+
+
+	}
 	std::vector<Team> get_teams() { return teams; }
 	Team get_player_team() { return player_team; }
 	void set_player_team(Team team) { player_team = team; }
@@ -41,6 +50,7 @@ public:
 	int get_cur_day() { return cur_day; }
 	Schedule get_schedule() { return schedule; }
 	void set_schedule(Schedule s) { schedule = s; }
+	std::map<std::string, win_lose_rating> get_stat() { return stat; }
 
 };
 

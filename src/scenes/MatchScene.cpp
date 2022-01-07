@@ -5,6 +5,11 @@ void MatchScene::content() {
 	match->simulate();
 	std::cout << "ÌÀÒ× ÄÂÓÕ ÂÅËÈÊÎËÅÏÍÛÕ ÊÎÌÀÍÄ:" << std::endl;
 	std::cout << match->get_team(0)->get_name() << " |  vs  | " << match->get_team(1)->get_name() << std::endl;
+
+	auto st0 = this->get_league()->get_stat()[match->get_team(0)->get_name()];
+	auto st1 = this->get_league()->get_stat()[match->get_team(1)->get_name()];
+
+	std::cout << st0.win << " - " << st0.lose << " |  vs  | " << st1.win << " - " << st1.lose << std::endl;
 	std::cout << std::endl;
 
 	std::cout << match->get_team(0)->get_name() << std::endl;
