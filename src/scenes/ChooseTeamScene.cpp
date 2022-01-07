@@ -38,6 +38,7 @@ Scene* ChooseTeamScene::options(std::string message) {
 			// установить еЄ в лигу
 			// перейти к сцене игры? либо вернутьс€ в стартовую с новой командой в существующих
 			this->get_league()->set_player_team(this->get_league()->get_teams()[pos]);
+			new_scene = new MainGameScene(this->get_league());
 
 		}
 		else {

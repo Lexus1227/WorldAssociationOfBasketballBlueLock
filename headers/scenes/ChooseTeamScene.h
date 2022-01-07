@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Scene.h"
+#include "MainGameScene.h"
 
 
 class ChooseTeamScene : public Scene {
