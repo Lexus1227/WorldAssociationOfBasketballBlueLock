@@ -8,3 +8,10 @@ void Match::simulate(int seed) {
 	//score[1] = 101 - seed;
 
 }
+
+
+Schedule generate_schedule(std::vector<Team> teams) {
+
+
+
+}
