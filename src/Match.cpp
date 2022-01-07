@@ -113,9 +113,22 @@ void print_one_row(std::ostream& os, Schedule sch, int i, int days) {
 
 
 		//Вывод названия команд
+		os << "//";
 		for (int k = 0; k < days; ++k) {
 
+			if (j < sch[i * days + k].size()) {
+				
+				std::string name_teams = sch[]
+				int left = ceil((full_len - day.size()) / 2.0);
+				int right = floor((full_len - day.size()) / 2.0);
+				os << std::setw(left) << std::setfill(' ') << "" << day << std::setw(right) << std::setfill(' ') << " ";
 
+			}
+			else {
+
+
+			}
+			os << "//";
 
 		}
 		//вывод счета
