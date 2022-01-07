@@ -5,7 +5,6 @@
 
 #include "Team.h"
 
-
 class Match {
 
 private:

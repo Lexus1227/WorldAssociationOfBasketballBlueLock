@@ -49,21 +49,30 @@ Schedule generate_schedule(std::vector<Team> teams) {
 
 }
 
+
 std::ostream& operator<<(std::ostream& os, Schedule sch) {
 
-	int width = 20;
-	int days_in_row = 5;
-
+	const int max_width_word = 20;
+	const std::string delimeter = " - ";
+	const int full_len = max_width_word * 2 + delimeter.size();
+	const int days_in_row = 5;
+	const std::string day_name = "День ";
 	//Выбираем по days_in_row игровых дней
 	//Идем по size div days_in_row
 	for (int i = 0; i < sch.size() / days_in_row; ++i) {
 
 		//вывод дней 
+		os << "//";
 		for (int j = 0; j < days_in_row; ++j) {
 
-
+			std::string day = day_name + std::to_string(i * days_in_row + j + 1);
+			int left = ceil((full_len - day.size()) / 2.0);
+			int right = floor((full_len - day.size()) / 2.0);
+			os << std::setw(left) << std::setfill(' ') << "" << day << std::setw(right) << std::setfill(' ') << " ";
+			os << "//";
 
 		}
+		os << std::endl;
 		/////////
 
 		//Максимальное количество матчей за days_in_row дней
