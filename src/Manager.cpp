@@ -11,7 +11,7 @@ void Manager::run() {
 
 		std::getline(std::cin, input);
 
-		if (input == "b") {
+		if (current_scene->is_returnable() && input == "b") {
 
 			std::cout << std::endl;
 			if (stack.size()) {
