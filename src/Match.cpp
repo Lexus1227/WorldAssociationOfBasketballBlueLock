@@ -48,3 +48,52 @@ Schedule generate_schedule(std::vector<Team> teams) {
 	return Schedule{};
 
 }
+
+std::ostream& operator<<(std::ostream& os, Schedule sch) {
+
+	int width = 20;
+	int days_in_row = 5;
+
+	//Выбираем по days_in_row игровых дней
+	//Идем по size div days_in_row
+	for (int i = 0; i < sch.size() / days_in_row; ++i) {
+
+		//вывод дней 
+		for (int j = 0; j < days_in_row; ++j) {
+
+
+
+		}
+		/////////
+
+		//Максимальное количество матчей за days_in_row дней
+		std::vector<unsigned long long> v;
+		for (int j = days_in_row * i, int _j = 0;_j < days_in_row && j < sch.size(); ++j, ++_j) {
+
+			v.push_back(sch[j].size());
+
+		}
+		int max = std::distance(v.begin(), std::max_element(v.begin(), v.end()));
+
+		//Сколько максимально игр из days_in_row дней
+		for (int j = 0; j < max; ++j) {
+
+
+			//Вывод названия команд
+			for (int k = 0; k < days_in_row; ++k) {
+
+				
+
+			}
+			//вывод счета
+			for (int k = 0; k < days_in_row; ++k) {
+
+				
+
+			}
+
+		}
+
+	}
+
+}
