@@ -117,5 +117,7 @@ std::ostream& operator<<(std::ostream& os, Schedule sch) {
 		}
 
 	}
+	
+	return os;
 
 }

@@ -20,7 +20,7 @@ private:
 
 	std::vector<Team> teams;
 	Team player_team;
-	Schedule schedule;
+	Schedule* schedule;
 	std::map<std::string, win_lose_rating> stat;
 	int cur_day = 0;
 
@@ -48,8 +48,8 @@ public:
 	void set_player_team(Team team) { player_team = team; }
 	void add_new_team(Team team) { teams.push_back(team); }
 	int get_cur_day() { return cur_day; }
-	Schedule get_schedule() { return schedule; }
-	void set_schedule(Schedule s) { schedule = s; }
+	Schedule* get_schedule() { return schedule; }
+	void set_schedule(Schedule* s) { schedule = s; }
 	std::map<std::string, win_lose_rating> get_stat() { return stat; }
 
 };
