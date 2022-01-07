@@ -8,7 +8,7 @@ void Match::simulate(int seed) {
 	//score[1] = 101 - seed;
 	srand(seed);
 		
-	auto s = [](Team* t, std::function<stat_type(Player& p)> g) {
+	auto mean = [](Team* t, std::function<stat_type(Player& p)> g) {
 		double sum = 0;
 		for (auto& p : t->get_players()) {
 
@@ -18,9 +18,9 @@ void Match::simulate(int seed) {
 		return sum / t->get_players().size();
 	};
 
-	score[0] = float(s(this->team[0], [](Player& p) { return p.get_stat(ATK); })) * 
-		s(this->team[0], [](Player& p) { return p.get_stat(END); });
-
+	score[0] = 
+		(mean(this->team[0], [](Player& p) { return p.get_stat(ATK); }) + rand() % 11) * 
+		(mean(this->team[0], [](Player& p) { return p.get_stat(END); }) + rand() % 11) / 100;
 
 }
 

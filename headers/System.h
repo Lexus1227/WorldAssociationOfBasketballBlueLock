@@ -40,3 +40,13 @@ public:
 	const char* what() { return this->message.c_str(); }
 
 };
+
+
+class WrongParamValue : public std::exception {
+private:
+	std::string message;
+public:
+	WrongParamValue(std::string msg) : message(msg) {};
+	const char* what() { return this->message.c_str(); }
+
+};

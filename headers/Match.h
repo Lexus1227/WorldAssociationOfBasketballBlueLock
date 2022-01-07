@@ -6,9 +6,6 @@
 #include "Team.h"
 
 
-typedef std::vector<std::vector<Match>> Schedule;
-
-
 class Match {
 
 private:
@@ -16,7 +13,7 @@ private:
 	stat_type score[2];
 
 public:
-	Match(Team* t0, Team* t1) {
+	Match(Team* t0 = nullptr, Team* t1 = nullptr) {
 
 		team[0] = t0;
 		team[1] = t1;
@@ -25,10 +22,15 @@ public:
 
 	}
 
-	void simulate(int seed);
-	stat_type get_score(unsigned nteam = 0) { return nteam < 2 ? score[nteam] : undef; }
+	void simulate(int seed = 42);
+	void set_team(Team* t, unsigned nteam = 0) { nteam < 2 ? team[nteam] = t : throw WrongParamValue("Wrong nteam"); }
+	stat_type get_score(unsigned nteam = 0) { return nteam < 2 ? score[nteam] : throw WrongParamValue("Wrong nteam"); }
 
 };
+
+
+typedef std::vector<std::vector<Match>> Schedule;
+
 
 
 Schedule generate_schedule(std::vector<Team> teams);
