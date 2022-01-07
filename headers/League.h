@@ -38,7 +38,11 @@ public:
 	void set_player_team(Team team) { player_team = team; }
 	void add_new_team(Team team) { teams.push_back(team); }
 	int get_cur_day() { return cur_day; }
+<<<<<<< HEAD
 	Schedule get_schedule() { return schedule; }
+=======
+	void set_schedule(Schedule s) { schedule = s; }
+>>>>>>> 36d5f578a4eb3d7ee699e58de68bdc381222424a
 
 };
 
