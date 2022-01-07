@@ -36,6 +36,9 @@ Scene* MainGameScene::options(std::string message) {
 	}
 	else if (message == "s") {
 
+		// TODO сыграть все все игры до нашей и после нашей в этот день
+		// 
+		// 
 		//std::cout << "—цена симул€ции матча" << std::endl;
 		//new_scene =  new MatchScene(this->get_league());
 

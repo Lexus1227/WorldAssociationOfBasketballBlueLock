@@ -1,3 +1,3 @@
 # StartGuide
-- добавь headers и scenes в include's
-- установию версию С++ latest
+- добавь headers, headers\scenes, tests в include's
+- установи версию С++ latest

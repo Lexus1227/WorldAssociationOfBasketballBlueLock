@@ -63,8 +63,6 @@ Schedule generate_schedule(std::vector<Team> teams) {
 }
 
 
-
-
 std::ostream& operator<<(std::ostream& os, Schedule sch) {
 
 	sch[0][0].simulate();
@@ -84,6 +82,7 @@ std::ostream& operator<<(std::ostream& os, Schedule sch) {
 	return os;
 
 }
+
 
 void print_one_row(std::ostream& os, Schedule sch, int i, int days) {
 
