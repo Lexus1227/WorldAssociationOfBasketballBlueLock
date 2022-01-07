@@ -63,8 +63,6 @@ Schedule generate_schedule(std::vector<Team> teams) {
 }
 
 
-enum {Days, Name, Score};
-
 std::ostream& operator<<(std::ostream& os, Schedule sch) {
 
 	
@@ -106,7 +104,7 @@ void print_one_row(std::ostream& os, Schedule sch, int i, int days) {
 		v.push_back(sch[days * i + j].size());
 
 	}
-	int max = std::distance(v.begin(), std::max_element(v.begin(), v.end()));
+	int max = v[std::distance(v.begin(), std::max_element(v.begin(), v.end()))];
 
 	//Сколько максимально игр из days_in_row дней
 	for (int j = 0; j < max; ++j) {
@@ -118,13 +116,15 @@ void print_one_row(std::ostream& os, Schedule sch, int i, int days) {
 
 			if (j < sch[i * days + k].size()) {
 				
-				std::string name_teams = sch[]
-				int left = ceil((full_len - day.size()) / 2.0);
-				int right = floor((full_len - day.size()) / 2.0);
-				os << std::setw(left) << std::setfill(' ') << "" << day << std::setw(right) << std::setfill(' ') << " ";
+				std::string teams_name = sch[i * days + k][j].get_team(0)->get_name() + delimeter + sch[i * days + k][j].get_team(1)->get_name();
+				int left = ceil((full_len - teams_name.size()) / 2.0);
+				int right = floor((full_len - teams_name.size()) / 2.0);
+				os << std::setw(left) << std::setfill(' ') << "" << teams_name << std::setw(right) << std::setfill(' ') << " ";
 
 			}
 			else {
+
+				os << std::setw(full_len) << std::setfill(' ') << "";
 
 
 			}
