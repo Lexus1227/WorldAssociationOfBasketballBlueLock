@@ -45,7 +45,20 @@ Schedule generate_schedule(std::vector<Team> teams) {
 
 	int days = matches_for_each_team * 2;
 	
-	return Schedule{};
+	Schedule s(days);
+	int k = 0;
+	for (int i = 0; i < teams.size(); ++i) {
+
+		for (int j = i + 1; j < teams.size(); ++j) {
+
+			s[k % days].push_back(Match(&teams[i], &teams[j]));
+			k += 2;
+
+		}
+
+	}
+
+	return s;
 
 }
 
