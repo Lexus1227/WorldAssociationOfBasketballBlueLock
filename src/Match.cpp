@@ -65,14 +65,14 @@ Schedule generate_schedule(std::vector<Team> teams) {
 
 std::ostream& operator<<(std::ostream& os, Schedule sch) {
 
-	const int max_width_word = 20;
+	const int max_width_word = 15;
 	const std::string delimeter = " - ";
 	const int full_len = max_width_word * 2 + delimeter.size();
 	const int days_in_row = 5;
 	const std::string day_name = "День ";
 	//Выбираем по days_in_row игровых дней
 	//Идем по size div days_in_row
-	for (int i = 0; i < sch.size() / days_in_row; ++i) {
+	for (int i = 0; int(ceil(i < sch.size() / float(days_in_row))); ++i) {
 
 		//вывод дней 
 		os << "//";

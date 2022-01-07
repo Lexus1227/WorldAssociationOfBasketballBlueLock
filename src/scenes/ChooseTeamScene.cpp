@@ -40,7 +40,7 @@ Scene* ChooseTeamScene::options(std::string message) {
 			// перейти к сцене игры? либо вернуться в стартовую с новой командой в существующих
 			this->get_league()->set_player_team(this->get_league()->get_teams()[pos]);
 			Schedule sch = generate_schedule(this->get_league()->get_teams());
-			this->get_league()->set_schedule(&sch);
+			this->get_league()->set_schedule(sch);
 			new_scene = new MainGameScene(this->get_league());
 
 		}
