@@ -2,7 +2,7 @@
 
 void MatchScene::content() {
 
-
+	if this->score[0] == 0 
 
 }
 

@@ -1,12 +1,13 @@
 #include "ScheduleStatScene.h"
 
-void SheduleStatScene::content() {
+void ScheduleStatScene::content() {
 
 
 
 }
 
-Scene* SheduleStatScene::options(std::string message) {
+
+Scene* ScheduleStatScene::options(std::string message) {
 
 	return nullptr;
 

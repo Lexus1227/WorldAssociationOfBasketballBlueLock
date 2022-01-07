@@ -22,6 +22,7 @@ void ChooseTeamScene::content() {
 
 }
 
+
 Scene* ChooseTeamScene::options(std::string message) {
 
 	std::cout << std::endl;
@@ -38,6 +39,8 @@ Scene* ChooseTeamScene::options(std::string message) {
 			// установить еЄ в лигу
 			// перейти к сцене игры? либо вернутьс€ в стартовую с новой командой в существующих
 			this->get_league()->set_player_team(this->get_league()->get_teams()[pos]);
+
+			this->get_league()->set_schedule(generate_schedule(this->get_league()->get_teams()));
 			new_scene = new MainGameScene(this->get_league());
 
 		}
