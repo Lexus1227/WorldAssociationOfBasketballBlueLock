@@ -68,9 +68,9 @@ std::ostream& operator<<(std::ostream& os, Schedule sch) {
 
 		//Максимальное количество матчей за days_in_row дней
 		std::vector<unsigned long long> v;
-		for (int j = days_in_row * i, int _j = 0;_j < days_in_row && j < sch.size(); ++j, ++_j) {
+		for (int j = 0; j < days_in_row; ++j) {
 
-			v.push_back(sch[j].size());
+			v.push_back(sch[days_in_row * i + j].size());
 
 		}
 		int max = std::distance(v.begin(), std::max_element(v.begin(), v.end()));
