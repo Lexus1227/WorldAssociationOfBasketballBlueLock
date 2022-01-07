@@ -30,3 +30,13 @@ public:
 	const char* what() { return this->message.c_str(); }
 
 };
+
+
+class UndefinedStat : public std::exception {
+private:
+	std::string message;
+public:
+	UndefinedStat(std::string msg) : message(msg) {};
+	const char* what() { return this->message.c_str(); }
+
+};

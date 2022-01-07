@@ -19,6 +19,7 @@ public:
 	void set_stat(characteristic st);
 	void set_name(std::string n);
 	void set_number(std::string num);
+	stat_type get_stat(std::string param) { return this->stat.get_value(param); }
 
 	friend std::ostream& operator<<(std::ostream& os, Player p);
 	friend std::istream& operator>>(std::istream& os, Player& p);

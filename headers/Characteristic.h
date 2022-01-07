@@ -37,18 +37,40 @@ struct characteristic{
 
 		if (param == "ATK")
 			this->attack = value;
-		if (param == "DEF") 
+		else if (param == "DEF") 
 			this->defense = value;
-		if (param == "ACC")
+		else if (param == "ACC")
 			this->acuraccy = value;
-		if (param == "STR")
+		else if (param == "STR")
 			this->strength = value;
-		if (param == "END")
+		else if (param == "END")
 			this->endurance = value;
-		if (param == "AGI")
+		else if (param == "AGI")
 			this->agility = value;
+		else
+			throw UndefinedStat("Undefined stat name was proped in set value char");
 
 	}
+
+	stat_type get_value(std::string param) {
+
+		if (param == "ATK")
+			return this->attack;
+		else if (param == "DEF")
+			return this->defense;
+		else if (param == "ACC")
+			return this->acuraccy;
+		else if (param == "STR")
+			return this->strength;
+		else if (param == "END")
+			return this->endurance;
+		else if (param == "AGI")
+			return this->agility;
+		else 
+			throw UndefinedStat("Undefined stat name was proped in set value char");
+
+	}
+
 	
 };
 

@@ -19,9 +19,10 @@ public:
 
 	Team(std::string n = "", std::vector<Player> p = {}) : name(n), players(p) {}
 	std::string get_name() { return name; }
+	std::vector<Player> get_players() { return players; }
 
 	friend std::ostream& operator<<(std::ostream& os, Team t);
-	friend std::istream& operator>>(std::istream& os, Team& t);
+	friend std::istream& operator>>(std::istream& is, Team& t);
 };
 
 

@@ -6,6 +6,21 @@ void Match::simulate(int seed) {
 	// set score
 	//score[0] = 100 - seed;
 	//score[1] = 101 - seed;
+	srand(seed);
+		
+	auto s = [](Team* t, std::function<stat_type(Player& p)> g) {
+		double sum = 0;
+		for (auto& p : t->get_players()) {
+
+			sum += g(p);
+
+		};
+		return sum / t->get_players().size();
+	};
+
+	score[0] = float(s(this->team[0], [](Player& p) { return p.get_stat(ATK); })) * 
+		s(this->team[0], [](Player& p) { return p.get_stat(END); });
+
 
 }
 

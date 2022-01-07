@@ -1,5 +1,6 @@
 #include "Player.h"
 
+
 void Player::set_stat(characteristic st) {
 
 	stat = st;
