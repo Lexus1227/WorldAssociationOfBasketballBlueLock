@@ -23,14 +23,9 @@ public:
 	}
 
 	void simulate(int seed);
-
 	stat_type get_score(unsigned nteam = 0) { return nteam < 2 ? score[nteam] : undef; }
 
 };
 
 
-Schedule generate_schedule(std::vector<Team> teams) {
-
-
-
-}
+Schedule generate_schedule(std::vector<Team> teams);

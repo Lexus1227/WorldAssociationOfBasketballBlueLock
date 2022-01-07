@@ -22,6 +22,7 @@ private:
 	Team player_team;
 	Schedule schedule;
 	std::map<Team, win_lose_rating> stat;
+	int cur_day = 0;
 
 	// schedule 
 	// 1 day	 //		2 day				//	3 day //	
