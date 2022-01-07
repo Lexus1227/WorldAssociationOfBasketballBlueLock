@@ -63,61 +63,67 @@ Schedule generate_schedule(std::vector<Team> teams) {
 }
 
 
+enum {Days, Name, Score};
+
 std::ostream& operator<<(std::ostream& os, Schedule sch) {
 
-	const int max_width_word = 15;
-	const std::string delimeter = " - ";
-	const int full_len = max_width_word * 2 + delimeter.size();
-	const int days_in_row = 5;
-	const std::string day_name = "День ";
+	
 	//Выбираем по days_in_row игровых дней
 	//Идем по size div days_in_row
-	for (int i = 0; int(ceil(i < sch.size() / float(days_in_row))); ++i) {
+	for (int i = 0; i < (sch.size() / days_in_row); ++i) {
 
-		//вывод дней 
+		print_one_row(os, sch, i, days_in_row);
+
+	}
+
+	print_one_row(os, sch, sch.size() / days_in_row, sch.size() % days_in_row);
+	
+	return os;
+
+}
+
+void print_one_row(std::ostream& os, Schedule sch, int i, int days) {
+
+	
+	//вывод дней 
+	os << "//";
+	for (int j = 0; j < days; ++j) {
+
+		std::string day = day_name + std::to_string(i * days + j + 1);
+		int left = ceil((full_len - day.size()) / 2.0);
+		int right = floor((full_len - day.size()) / 2.0);
+		os << std::setw(left) << std::setfill(' ') << "" << day << std::setw(right) << std::setfill(' ') << " ";
 		os << "//";
-		for (int j = 0; j < days_in_row; ++j) {
 
-			std::string day = day_name + std::to_string(i * days_in_row + j + 1);
-			int left = ceil((full_len - day.size()) / 2.0);
-			int right = floor((full_len - day.size()) / 2.0);
-			os << std::setw(left) << std::setfill(' ') << "" << day << std::setw(right) << std::setfill(' ') << " ";
-			os << "//";
+	}
+	os << std::endl;
+	/////////
+
+	//Максимальное количество матчей за days_in_row дней
+	std::vector<unsigned long long> v;
+	for (int j = 0; j < days; ++j) {
+
+		v.push_back(sch[days * i + j].size());
+
+	}
+	int max = std::distance(v.begin(), std::max_element(v.begin(), v.end()));
+
+	//Сколько максимально игр из days_in_row дней
+	for (int j = 0; j < max; ++j) {
+
+
+		//Вывод названия команд
+		for (int k = 0; k < days; ++k) {
+
+
 
 		}
-		os << std::endl;
-		/////////
-
-		//Максимальное количество матчей за days_in_row дней
-		std::vector<unsigned long long> v;
-		for (int j = 0; j < days_in_row; ++j) {
-
-			v.push_back(sch[days_in_row * i + j].size());
-
-		}
-		int max = std::distance(v.begin(), std::max_element(v.begin(), v.end()));
-
-		//Сколько максимально игр из days_in_row дней
-		for (int j = 0; j < max; ++j) {
+		//вывод счета
+		for (int k = 0; k < days; ++k) {
 
 
-			//Вывод названия команд
-			for (int k = 0; k < days_in_row; ++k) {
-
-				
-
-			}
-			//вывод счета
-			for (int k = 0; k < days_in_row; ++k) {
-
-				
-
-			}
 
 		}
 
 	}
-	
-	return os;
-
 }

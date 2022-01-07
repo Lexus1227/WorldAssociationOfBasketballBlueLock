@@ -8,6 +8,7 @@ void CreateScene::content() {
 о команде в специальной форме:" << std::endl;
 
 	std::cout << "%НазваниеКоманды" << std::endl;
+	std::cout << "%КороткоеНазваниеКоманды" << std::endl;
 	std::cout << "%КоличествоИгроков" << std::endl;
 	std::cout << "Для каждого игрока (x %КоличествоИгроков раз):" << std::endl;
 	std::cout << "%ПолноеИмяИгрока" << std::endl;

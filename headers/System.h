@@ -5,6 +5,14 @@
 #include <vector>
 #include <set>
 
+// константы
+const int max_width_word = 5;
+const std::string delimeter = " - ";
+const int full_len = max_width_word * 2 + delimeter.size();
+const int days_in_row = 5;
+const std::string day_name = "День ";
+
+
 // выход из игры
 void exit_game();
 

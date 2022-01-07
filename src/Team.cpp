@@ -22,6 +22,7 @@ std::ostream& operator<<(std::ostream& os, Team t) {
 std::istream& operator>>(std::istream& is, Team& t) {
 
 	std::getline(is, t.name);
+	std::getline(is, t.short_name);
 	t.players.resize(0);
 
 	int nplayers = 0;
