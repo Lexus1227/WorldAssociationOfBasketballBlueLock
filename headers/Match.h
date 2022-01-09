@@ -38,40 +38,10 @@ typedef std::vector<std::vector<Match>> Schedule;
 std::ostream& operator<<(std::ostream& os, Schedule sch);
 
 
-Schedule generate_schedule(std::vector<Team> teams);
-
+Schedule generate_schedule(std::vector<Team> teams, int seed = 42);
 void print_one_row(std::ostream& os, Schedule sch, int i, int days);
 
 typedef std::pair<int, int> match_index;
-
-
 std::vector<match_index> generate_flat(std::vector<int> v);
-//{
-//		std::vector<match_index>  result;
-//		result = first and second algorithm concating
-//		1 2 3 4 .. n
-//		n + 1 n + 2 
-//		for (int j = 0; j < second.size(); ++ j) {
-//			for (int i = 0; i < first.size(); ++ i) {
-//				
-//				result.append(pair(first[i], second[j]))
-// 
-//			}
-//		
-//		}
-// 
-//		if (left.size() > 2) {
-//		c1 = cut(left);
-//		result += generate_flat(c1.first, c1.second);
-//		}
-// 
-//		if (right.size) > 2 {
-//		c2 = cut(right);
-//		result += generate_flat(c2.first, c2.second)
-//		}
-// 
-//}
-
-
 std::pair<std::vector<int>, std::vector<int>> cut(std::vector<int> v);
-Schedule split_by_k(std::vector<match_index> v, int k);
+Schedule split_by_k(std::vector<Team> teams, std::vector<match_index> v, int k);

@@ -38,15 +38,13 @@ void Match::simulate(int seed) {
 }
 
 
-Schedule generate_schedule(std::vector<Team> teams) {
+Schedule generate_schedule(std::vector<Team> teams, int seed) {
 
 	int times_to_play = 2;
 	int matches_for_each_team = (teams.size() - 1) * times_to_play;
 
 	int days = matches_for_each_team * 2;
 
-	//shuffle teams
-	
 	std::vector<int> indexes;
 	indexes.resize(teams.size());
 	for (int i = 0; i < indexes.size(); ++i) {
@@ -54,13 +52,57 @@ Schedule generate_schedule(std::vector<Team> teams) {
 		indexes[i] = i;
 
 	}
-
-	std::random_device rd;
-	std::mt19937 g(rd());
+	//shuffle teams
+	std::mt19937 g(seed);
 	std::shuffle(indexes.begin(), indexes.end(), g);
-	Schedule s = split_by_k(generate_flat(indexes), match_in_day);
+	Schedule s = split_by_k(teams, generate_flat(indexes), match_in_day);
 
 	return s;
+
+}
+
+std::vector<match_index> generate_flat(std::vector<int> v) {
+
+	if (v.size() < 2) {
+
+		return{};
+
+	}
+	std::vector<match_index> result;
+	std::pair<std::vector<int>, std::vector<int>> c = cut(v);
+
+	for (int offset = 0; offset < c.second.size(); ++offset) {
+
+		for (int i = 0; i < c.first.size(); ++i) {
+
+			result.push_back(std::make_pair(c.first[i], c.second[(i + offset) % c.second.size()]));
+
+		}
+
+	}
+	auto t = generate_flat(c.first);
+	result.insert(result.end(), t.begin(), t.end());
+	t = generate_flat(c.second);
+	result.insert(result.end(), t.begin(), t.end());
+	return result;
+
+}
+
+std::pair<std::vector<int>, std::vector<int>> cut(std::vector<int> v) {
+
+	std::vector<int> left;
+	std::vector<int> right;
+	
+	int index = v.size() / 2;
+	left.insert(left.end(), v.begin(), v.begin() + index);
+	right.insert(right.end(), v.begin() + index, v.end());
+	
+	return std::make_pair(left, right);
+
+}
+Schedule split_by_k(std::vector<Team> teams, std::vector<match_index> v, int k) {
+
+	return {};
 
 }
 
