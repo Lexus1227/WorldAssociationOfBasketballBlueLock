@@ -50,16 +50,25 @@ Scene* MainGameScene::options(std::string message) {
 
 				if (not this->get_league()->get_schedule()[day][match].played()) {
 
-					if ((today[match].get_team(0)->get_name() == player_team) or (today[match].get_team(0)->get_name() == player_team)) {
+					if ((today[match].get_team(0)->get_name() == player_team) or (today[match].get_team(1)->get_name() == player_team)) {
 
 						new_scene = new MatchScene(this->get_league(), day, match);
 						return new_scene;
+
+					}
+					else {
+
+						Match m = this->get_league()->get_schedule()[day][match];
+						m.simulate();
+						this->get_league()->change_match(m, day, match);
+
 
 					}
 
 				}
 
 			}
+			this->get_league()->increment_day();
 
 		}
 		std::cout << "Âñå ìàò÷è áûëè ñûãğàíû, İÒÎ ÊÎÍÅÖ ËÈÃÈ BLUE LOCK" << std::endl;//
