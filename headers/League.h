@@ -44,12 +44,14 @@ public:
 
 
 	}
-	std::vector<Team> get_teams() { return teams; }
+	std::vector<Team>& get_teams() { return teams; }
 	Team get_player_team() { return player_team; }
 	void set_player_team(Team team) { player_team = team; }
 	void add_new_team(Team team) { teams.push_back(team); }
 	int get_cur_day() { return cur_day; }
 	Schedule get_schedule() { return schedule; }
+	Schedule* get_real_schedule() { return &schedule; }
+	void change_match(Match match, int d, int m) { this->schedule[d][m] = match; }
 	void set_schedule(Schedule s) { schedule = s; }
 	std::map<std::string, win_lose_rating> get_stat() { return stat; }
 

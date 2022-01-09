@@ -52,7 +52,8 @@ Scene* MainGameScene::options(std::string message) {
 
 					if ((today[match].get_team(0)->get_name() == player_team) or (today[match].get_team(0)->get_name() == player_team)) {
 
-						return new MatchScene(this->get_league(), &this->get_league()->get_schedule()[day][match]);
+						new_scene = new MatchScene(this->get_league(), day, match);
+						return new_scene;
 
 					}
 
@@ -61,7 +62,9 @@ Scene* MainGameScene::options(std::string message) {
 			}
 
 		}
-		std::cout << "КОНЕЦ ИГРЫ" << std::endl;//
+		std::cout << "Все матчи были сыграны, ЭТО КОНЕЦ ЛИГИ BLUE LOCK" << std::endl;//
+		std::cout << "Вы можете насладиться статистикой или закончить игру (q)" << std::endl;
+		std::cout << std::endl;
 
 	}
 	else {
