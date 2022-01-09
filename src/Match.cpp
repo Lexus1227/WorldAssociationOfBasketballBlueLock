@@ -130,7 +130,6 @@ Schedule split_by_k(std::vector<Team>& teams, std::vector<match_index> v, int k)
 
 std::ostream& operator<<(std::ostream& os, Schedule sch) {
 
-	sch[0][0].simulate();
 	//Выбираем по days_in_row игровых дней
 	//Идем по size div days_in_row
 	os << std::setw(days_in_row * full_len + (days_in_row + 1) * 2) << std::setfill('#') << "" << std::endl;
@@ -218,12 +217,17 @@ void print_one_row(std::ostream& os, Schedule sch, int i, int days) {
 				os << std::setw(left) << std::setfill(fill_symbol[0]) << "" << teams_score << std::setw(right) << std::setfill(fill_symbol[0]) << "";
 
 			}
-			else {
+			else if((j < sch[i * days + k].size()) and !(sch[i * days + k][j].played())) {
 
-				std::string text = "Не сыграли";
+				std::string text = "??? - ???";
 				int left = ceil((full_len - text.size()) / 2.0);
 				int right = floor((full_len - text.size()) / 2.0);
 				os << std::setw(left) << std::setfill(fill_symbol[0]) << "" << text << std::setw(right) << std::setfill(fill_symbol[0]) << "";
+
+			}
+			else {
+
+				os << std::setw(full_len) << std::setfill(fill_symbol[0]) << "";
 
 			}
 			os << "//";
