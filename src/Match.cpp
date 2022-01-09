@@ -46,18 +46,19 @@ Schedule generate_schedule(std::vector<Team> teams) {
 	int days = matches_for_each_team * 2;
 
 	//shuffle teams
-	Schedule s(days);
-	int k = 0;
-	for (int i = 0; i < teams.size(); ++i) {
+	
+	std::vector<int> indexes;
+	indexes.resize(teams.size());
+	for (int i = 0; i < indexes.size(); ++i) {
 
-		for (int j = i + 1; j < teams.size(); ++j) {
-
-			s[k % days].push_back(Match(&teams[i], &teams[j]));
-			k += 2;
-
-		}
+		indexes[i] = i;
 
 	}
+
+	std::random_device rd;
+	std::mt19937 g(rd());
+	std::shuffle(indexes.begin(), indexes.end(), g);
+	Schedule s = split_by_k(generate_flat(indexes), match_in_day);
 
 	return s;
 

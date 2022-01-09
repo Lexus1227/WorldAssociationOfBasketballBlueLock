@@ -2,8 +2,11 @@
 
 #include <random>
 #include <functional>
-
+#include <algorithm>
 #include "Team.h"
+
+
+const int match_in_day = 5;
 
 class Match {
 
@@ -42,7 +45,7 @@ void print_one_row(std::ostream& os, Schedule sch, int i, int days);
 typedef std::pair<int, int> match_index;
 
 
-std::vector<match_index> generate_flat(std::vector<int> first, std::vector<int> second);
+std::vector<match_index> generate_flat(std::vector<int> v);
 //{
 //		std::vector<match_index>  result;
 //		result = first and second algorithm concating
@@ -71,4 +74,4 @@ std::vector<match_index> generate_flat(std::vector<int> first, std::vector<int> 
 
 
 std::pair<std::vector<int>, std::vector<int>> cut(std::vector<int> v);
-std::vector<std::vector<match_index>> split_by_k(std::vector<match_index> v, int k);
+Schedule split_by_k(std::vector<match_index> v, int k);
