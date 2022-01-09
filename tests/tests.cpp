@@ -5,5 +5,6 @@ void run_all_tests() {
 
 	test_one_match();
 	test_match_scene();
+	test_shuffle();
 
 }
