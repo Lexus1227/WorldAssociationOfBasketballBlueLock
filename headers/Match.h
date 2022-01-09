@@ -71,4 +71,6 @@ std::vector<match_index> generate_flat(std::vector<int> first, std::vector<int> 
 
 
 std::pair<std::vector<int>, std::vector<int>> cut(std::vector<int> v);
+
+
 std::vector<std::vector<match_index>> split_by_k(std::vector<match_index> v, int k);

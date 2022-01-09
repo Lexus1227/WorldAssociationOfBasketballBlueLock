@@ -42,8 +42,28 @@ Scene* MainGameScene::options(std::string message) {
 		//std::cout << "Сцена симуляции матча" << std::endl;
 		//new_scene =  new MatchScene(this->get_league());
 
+		std::string player_team = this->get_league()->get_player_team().get_name();
+		for (int day = this->get_league()->get_cur_day(); day < this->get_league()->get_schedule().size(); ++day) {
+
+			auto today = this->get_league()->get_schedule()[day];
+			for (int match = 0; match < today.size(); ++match) {
+
+				if (not this->get_league()->get_schedule()[day][match].played()) {
+
+					if ((today[match].get_team(0)->get_name() == player_team) or (today[match].get_team(0)->get_name() == player_team)) {
+
+						return new MatchScene(this->get_league(), &this->get_league()->get_schedule()[day][match]);
+
+					}
+
+				}
+
+			}
+
+		}
+		std::cout << "КОНЕЦ ИГРЫ" << std::endl;//
+
 	}
-	
 	else {
 
 		std::cout << "Не понял команду, повторите ещё раз" << std::endl;
