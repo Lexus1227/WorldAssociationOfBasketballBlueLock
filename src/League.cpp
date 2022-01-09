@@ -8,4 +8,6 @@ std::ostream& operator<<(std::ostream& os, std::map<std::string, win_lose_rating
 
 	}
 
+	return os;
+
 }
