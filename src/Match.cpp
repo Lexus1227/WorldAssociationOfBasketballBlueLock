@@ -44,7 +44,8 @@ Schedule generate_schedule(std::vector<Team> teams) {
 	int matches_for_each_team = (teams.size() - 1) * times_to_play;
 
 	int days = matches_for_each_team * 2;
-	
+
+	//shuffle teams
 	Schedule s(days);
 	int k = 0;
 	for (int i = 0; i < teams.size(); ++i) {
@@ -86,7 +87,7 @@ std::ostream& operator<<(std::ostream& os, Schedule sch) {
 
 void print_one_row(std::ostream& os, Schedule sch, int i, int days) {
 
-	
+
 	//вывод дней 
 	os << "//";
 	for (int j = 0; j < days; ++j) {
@@ -94,7 +95,7 @@ void print_one_row(std::ostream& os, Schedule sch, int i, int days) {
 		std::string day = day_name + std::to_string(i * days + j + 1);
 		int left = ceil((full_len - day.size()) / 2.0);
 		int right = floor((full_len - day.size()) / 2.0);
-		os << std::setw(left) << std::setfill('_') << "" << day << std::setw(right) << std::setfill('_') << "";
+		os << std::setw(left) << std::setfill(fill_symbol[0]) << "" << day << std::setw(right) << std::setfill(fill_symbol[0]) << "";
 		os << "//";
 
 	}
@@ -123,12 +124,12 @@ void print_one_row(std::ostream& os, Schedule sch, int i, int days) {
 				std::string teams_name = sch[i * days + k][j].get_team(0)->get_short_name() + delimeter + sch[i * days + k][j].get_team(1)->get_short_name();
 				int left = ceil((full_len - teams_name.size()) / 2.0);
 				int right = floor((full_len - teams_name.size()) / 2.0);
-				os << std::setw(left) << std::setfill('_') << "" << teams_name << std::setw(right) << std::setfill('_') << "";
+				os << std::setw(left) << std::setfill(fill_symbol[0]) << "" << teams_name << std::setw(right) << std::setfill(fill_symbol[0]) << "";
 
 			}
 			else {
 
-				os << std::setw(full_len) << std::setfill('_') << "";
+				os << std::setw(full_len) << std::setfill(fill_symbol[0]) << "";
 
 
 			}
@@ -151,17 +152,15 @@ void print_one_row(std::ostream& os, Schedule sch, int i, int days) {
 
 				int left = ceil((full_len - teams_score.size()) / 2.0);
 				int right = floor((full_len - teams_score.size()) / 2.0);
-				os << std::setw(left) << std::setfill('_') << "" << teams_score << std::setw(right) << std::setfill('_') << "";
+				os << std::setw(left) << std::setfill(fill_symbol[0]) << "" << teams_score << std::setw(right) << std::setfill(fill_symbol[0]) << "";
 
 			}
 			else {
 
-				os << std::setw(full_len) << std::setfill('_') << "";
-
+				os << std::setw(full_len) << std::setfill(fill_symbol[0]) << "";
 
 			}
 			os << "//";
-
 
 		}
 		os << std::endl;
