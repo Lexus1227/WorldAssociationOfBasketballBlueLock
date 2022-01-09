@@ -106,7 +106,6 @@ std::pair<std::vector<int>, std::vector<int>> cut(std::vector<int> v) {
 
 Schedule split_by_k(std::vector<Team> teams, std::vector<match_index> v, int k) {
 
-
 	Schedule result;
 	std::vector<Match> temp;
 	for (int i = 0; i < v.size(); ++i) {
