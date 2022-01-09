@@ -53,6 +53,7 @@ public:
 	Schedule* get_real_schedule() { return &schedule; }
 	void change_match(Match match, int d, int m) { this->schedule[d][m] = match; }
 	void set_schedule(Schedule s) { schedule = s; }
+	void increment_day() { ++this->cur_day; }
 	std::map<std::string, win_lose_rating> get_stat() { return stat; }
 
 };
