@@ -110,7 +110,7 @@ Schedule split_by_k(std::vector<Team> teams, std::vector<match_index> v, int k) 
 	std::vector<Match> temp;
 	for (int i = 0; i < v.size(); ++i) {
 
-		if (i + 1 % k == 0) {
+		if ((i + 1) % k == 0) {
 
 			result.push_back(temp);
 			temp.resize(0);
@@ -210,7 +210,7 @@ void print_one_row(std::ostream& os, Schedule sch, int i, int days) {
 
 				std::string teams_score = 
 					std::to_string(sch[i * days + k][j].get_score(0)) + 
-					delimeter + 
+					delimeter_score + 
 					std::to_string(sch[i * days + k][j].get_score(1));
 
 				int left = ceil((full_len - teams_score.size()) / 2.0);
@@ -220,7 +220,10 @@ void print_one_row(std::ostream& os, Schedule sch, int i, int days) {
 			}
 			else {
 
-				os << std::setw(full_len) << std::setfill(fill_symbol[0]) << "";
+				std::string text = "Не сыграли";
+				int left = ceil((full_len - text.size()) / 2.0);
+				int right = floor((full_len - text.size()) / 2.0);
+				os << std::setw(left) << std::setfill(fill_symbol[0]) << "" << text << std::setw(right) << std::setfill(fill_symbol[0]) << "";
 
 			}
 			os << "//";

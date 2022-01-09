@@ -9,6 +9,7 @@
 const int max_width_word = 5;
 const std::string fill_symbol = " ";
 const std::string delimeter = fill_symbol + "vs" + fill_symbol;
+const std::string delimeter_score = fill_symbol + "-" + fill_symbol;
 const int full_len = max_width_word * 2 + delimeter.size();
 const int days_in_row = 5;
 const std::string day_name = "Δενό" + fill_symbol;
