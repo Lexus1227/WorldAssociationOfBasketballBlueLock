@@ -37,7 +37,6 @@ public:
 typedef std::vector<std::vector<Match>> Schedule;
 std::ostream& operator<<(std::ostream& os, Schedule sch);
 
-
 Schedule generate_schedule(std::vector<Team>& teams, int seed = 42);
 void print_one_row(std::ostream& os, Schedule sch, int i, int days);
 

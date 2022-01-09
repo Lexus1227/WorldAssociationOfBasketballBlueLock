@@ -13,9 +13,9 @@
 int main() {
 
 	setlocale(LC_ALL, "rus");
-	#ifdef TESTING_MODE
+	/*#ifdef TESTING_MODE
 			run_all_tests();
-	#endif
+	#endif*/
 
 	Manager man;
 	man.run();

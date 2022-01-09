@@ -6,17 +6,18 @@
 #include "Team.h"
 #include "Match.h"
 
+typedef	struct win_lose_rating {
+
+	stat_type win = 0;
+	stat_type lose = 0;
+
+};
 
 class League {
 
 private:
 
-	typedef	struct win_lose_rating {
 
-		stat_type win = 0;
-		stat_type lose = 0;
-
-	};
 
 	std::vector<Team> teams;
 	Team player_team;
@@ -56,3 +57,4 @@ public:
 
 };
 
+std::ostream& operator<<(std::ostream& os, std::map<std::string, win_lose_rating> stat);
