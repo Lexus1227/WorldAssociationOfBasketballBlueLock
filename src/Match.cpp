@@ -38,7 +38,7 @@ void Match::simulate(int seed) {
 }
 
 
-Schedule generate_schedule(std::vector<Team> teams, int seed) {
+Schedule generate_schedule(std::vector<Team>& teams, int seed) {
 
 	int times_to_play = 2;
 	int matches_for_each_team = (teams.size() - 1) * times_to_play;
@@ -104,7 +104,7 @@ std::pair<std::vector<int>, std::vector<int>> cut(std::vector<int> v) {
 }
 
 
-Schedule split_by_k(std::vector<Team> teams, std::vector<match_index> v, int k) {
+Schedule split_by_k(std::vector<Team>& teams, std::vector<match_index> v, int k) {
 
 
 	Schedule result;

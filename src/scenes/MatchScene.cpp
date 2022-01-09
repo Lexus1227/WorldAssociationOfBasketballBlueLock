@@ -2,6 +2,8 @@
 
 void MatchScene::content() {
 
+	Match ma = this->get_league()->get_schedule()[day][mat];
+	Match* match = &ma;
 	match->simulate();
 	std::cout << "ÌÀÒ× ÄÂÓÕ ÂÅËÈÊÎËÅÏÍÛÕ ÊÎÌÀÍÄ:" << std::endl;
 	std::cout << match->get_team(0)->get_name() << " |  vs  | " << match->get_team(1)->get_name() << std::endl;
@@ -31,6 +33,10 @@ void MatchScene::content() {
 	std::cout << "ÈÒÎÃÈ ÌÀÒ×À: " << std::endl;
 	std::cout << match->get_score(0) << " - " << match->get_score(1) << std::endl;
 	std::cout << std::endl;
+	
+	std::cout << "b - Âåðíóòüñÿ â èãðîâîå ìåíþ" << std::endl;
+	std::cout << std::endl;
+	this->get_league()->change_match(*match, day, mat);
 
 }
 

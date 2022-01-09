@@ -38,13 +38,11 @@ typedef std::vector<std::vector<Match>> Schedule;
 std::ostream& operator<<(std::ostream& os, Schedule sch);
 
 
-Schedule generate_schedule(std::vector<Team> teams, int seed = 42);
+Schedule generate_schedule(std::vector<Team>& teams, int seed = 42);
 void print_one_row(std::ostream& os, Schedule sch, int i, int days);
 
 typedef std::pair<int, int> match_index;
 std::vector<match_index> generate_flat(std::vector<int> v);
 std::pair<std::vector<int>, std::vector<int>> cut(std::vector<int> v);
 
-
-std::vector<std::vector<match_index>> split_by_k(std::vector<match_index> v, int k);
-Schedule split_by_k(std::vector<Team> teams, std::vector<match_index> v, int k);
+Schedule split_by_k(std::vector<Team>& teams, std::vector<match_index> v, int k);

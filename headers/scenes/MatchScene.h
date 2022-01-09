@@ -8,10 +8,11 @@ class MatchScene : public Scene{
 
 public:
 
-	Match* match;
+	int day;
+	int mat;
 
-	MatchScene(League* l, Match* m): Scene(l, true), match(m) {
-
+	MatchScene(League* l, int d, int m): Scene(l, true), day(d), mat(m) {
+		
 	};
 
 	void content();
