@@ -55,11 +55,12 @@ Schedule generate_schedule(std::vector<Team> teams, int seed) {
 	//shuffle teams
 	std::mt19937 g(seed);
 	std::shuffle(indexes.begin(), indexes.end(), g);
-	Schedule s = split_by_k(teams, generate_flat(indexes), match_in_day);
+	Schedule s = split_by_k(teams, generate_flat(indexes), max_matches_in_day);
 
 	return s;
 
 }
+
 
 std::vector<match_index> generate_flat(std::vector<int> v) {
 
@@ -88,6 +89,7 @@ std::vector<match_index> generate_flat(std::vector<int> v) {
 
 }
 
+
 std::pair<std::vector<int>, std::vector<int>> cut(std::vector<int> v) {
 
 	std::vector<int> left;
@@ -100,9 +102,29 @@ std::pair<std::vector<int>, std::vector<int>> cut(std::vector<int> v) {
 	return std::make_pair(left, right);
 
 }
+
+
 Schedule split_by_k(std::vector<Team> teams, std::vector<match_index> v, int k) {
 
-	return {};
+
+	Schedule result;
+	std::vector<Match> temp;
+	for (int i = 0; i < v.size(); ++i) {
+
+		if (i + 1 % k == 0) {
+
+			result.push_back(temp);
+			temp.resize(0);
+
+		}
+		match_index m = v[i];
+		temp.push_back(Match(&teams[m.first], &teams[m.second]));
+
+	}
+	result.push_back(temp);
+
+
+	return result;
 
 }
 
@@ -129,7 +151,6 @@ std::ostream& operator<<(std::ostream& os, Schedule sch) {
 
 
 void print_one_row(std::ostream& os, Schedule sch, int i, int days) {
-
 
 	//вывод дней 
 	os << "//";

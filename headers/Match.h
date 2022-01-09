@@ -6,7 +6,7 @@
 #include "Team.h"
 
 
-const int match_in_day = 5;
+const int max_matches_in_day = 6;
 
 class Match {
 
