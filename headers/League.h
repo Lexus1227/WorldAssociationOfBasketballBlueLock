@@ -22,7 +22,6 @@ private:
 	std::vector<Team> teams;
 	Team player_team;
 	Schedule schedule;
-	std::map<std::string, win_lose_rating> stat;
 	int cur_day = 0;
 
 	// schedule 
@@ -35,13 +34,6 @@ private:
 public:
 	
 	League(std::vector<Team> t = {}) : teams(t) { 
-	
-		for (auto& t : teams) {
-
-			stat[t.get_name()] = { 0, 0 };
-
-		}
-
 
 	}
 	std::vector<Team>& get_teams() { return teams; }
@@ -54,7 +46,41 @@ public:
 	void change_match(Match match, int d, int m) { this->schedule[d][m] = match; }
 	void set_schedule(Schedule s) { schedule = s; }
 	void increment_day() { ++this->cur_day; }
-	std::map<std::string, win_lose_rating> get_stat() { return stat; }
+	std::map<std::string, win_lose_rating> get_stat() {
+	
+		std::map<std::string, win_lose_rating> stat;
+		for (auto& t : teams) {
+
+			stat[t.get_name()] = { 0, 0 };
+
+		}
+		for (int day = 0; day < schedule.size(); ++day) {
+
+			for (int match = 0; match < schedule[day].size(); ++match) {
+
+				if (not schedule[day][match].played()) {
+
+					return stat;
+
+				}
+				if (schedule[day][match].get_score(0) > schedule[day][match].get_score(1)) {
+
+					stat[schedule[day][match].get_team(0)->get_name()].win += 1;
+					stat[schedule[day][match].get_team(1)->get_name()].lose += 1;
+
+				}
+				else {
+
+					stat[schedule[day][match].get_team(1)->get_name()].win += 1;
+					stat[schedule[day][match].get_team(0)->get_name()].lose += 1;
+
+				}
+
+			}
+
+		}
+	
+	}
 
 };
 
